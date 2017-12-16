@@ -32,7 +32,7 @@
     "amqplib": "^0.5.2"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.3",
     "faker": "^4.1.0",
     "mocha": "^4.0.1",
     "chai": "^4.1.1",
