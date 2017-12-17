@@ -7,7 +7,7 @@
 */
 import webpush from 'web-push'
 
-module.exports = function () {
+module.exports = function (registerInfo, payload) {
   webpush.setGCMAPIKey(process.env.API_KEY)
   const options = {
     vapidDetails: {
@@ -20,17 +20,9 @@ module.exports = function () {
     TTL: 60 * 60
   }
 
-  const registrationInfo = {
-    endpoint: 'https://android.googleapis.com/gcm/send/dodh4dl5-DI:APA91bHhQr2CzsXRIls7W5NHzG7ajqqXAEn1gDuHLWYjQUplY-Sx8Wtn434YzYeE2EcuxPzurGJUzUFelJfyOXzZIkvynlSESbU8lyDnic5g38AVjOx-O9PTDPqBvlU_cx99H84X8rWh',
-    keys: {
-      auth: '9TOw8sgt02oK95o3ZHjRnA==',
-      p256dh: 'BI5hyRF/zN1jyJqu3c5KUtFaFzND/krtnTeZqL9I5ZtDC71f3EYEKZj3yytFlmKf1H7JAc3SC7zReoMLX0xisEs='
-    }
-  }
-
   webpush.sendNotification(
-    registrationInfo,
-    'test',
+    registerInfo,
+    JSON.stringify(payload),
     options
   )
     .then((resp) => {

@@ -5,7 +5,6 @@ const router = express.Router()
 
 /* GET index page. */
 router.get('/', (req, res) => {
-  Send()
   res.json({
     title: 'Express'
   })

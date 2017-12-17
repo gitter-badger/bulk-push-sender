@@ -13,7 +13,7 @@ import Debug from 'debug'
 import express from 'express'
 import logger from 'morgan'
 import path from 'path'
-
+// import socketIo from 'socket.io'
 import index from './routes/index'
 import produce from './routes/produce'
 import consume from './routes/consume'
@@ -21,7 +21,14 @@ import consume from './routes/consume'
 dotenv.config()
 
 const app = express()
+/* const io = socketIo()
+app.io = io */
 const debug = Debug('bulk-push-sender:app')
+
+/* // socket.io events
+io.on('connection', (socket) => {
+  console.log('A user connected')
+}) */
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
